@@ -1,0 +1,45 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block content %}
+
+
+<center><h4>{% trans 'Decrypt File' %}</h4></center>
+
+
+
+
+<center><h1>{{  files.name }}</h1></center>
+<center><div>
+    <form action="{% url 'accounts:decrypt' %}" method="post">
+
+{% csrf_token %}
+    <table>
+        <tr>
+            <td>File Name</td>
+            <td>{{  files.name }}</td>
+        </tr>
+        <tr>
+    <td>Created At</td>
+    <td>{{  files.created_at }}</td>
+        </tr>
+        <tr>
+    <td>Enter Password</td>
+    <td>
+        <input type="password" name="password" maxlength="16" required> </td>
+        <input type="hidden" name="documents" value="{{files.documents}}"> </td>
+        </tr>
+           <tr>
+    <td>Download</td>
+    <td><input type="submit" value="Decrypt File"> </td>
+        </tr>
+
+
+    </table>
+
+         </form>
+</div></center>
+
+{%endblock%}

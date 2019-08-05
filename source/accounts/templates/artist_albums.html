@@ -1,0 +1,75 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block content %}
+
+<h1>Artist Albumlist</h1>
+
+{% if albums %}
+<center><a href="{{ url }}" target="_blank">Click Here To Open Playlist in Spootify</a></center>
+<table class="table table-hover table-striped table-dark" id="example">
+    <thead>
+    <tr>
+        <th class="th-sm">ID
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+        <th class="th-sm">Album Name
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+        <th class="th-sm">Open Artist
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+        <th class="th-sm">View Album
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for i in albums %}
+    <tr>
+        <td>
+            {{ i.id }}
+        </td>
+        <td> {{ i.name }}</td>
+        <td> <a href=" {{ i.artist_url }}" target="_blank" class="btn btn-success">Artist</a> </td>
+        <td> <a href=" {{ i.external_urls }}" target="_blank" class="btn btn-success">Album</a> </td>
+
+
+
+    </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+         <th class="th-sm">ID
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+        <th class="th-sm">Album Name
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+        <th class="th-sm">Open Artist
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+        <th class="th-sm">View Album
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+    </tr>
+    </tfoot>
+
+
+</table>
+
+{% else %}
+<p>No Files are available.</p>
+
+{% endif %}
+
+
+{% endblock %}
+
+
+

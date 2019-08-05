@@ -1,0 +1,20 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load bootstrap4 %}
+{% load i18n %}
+
+
+
+{% block content %}
+<center><h4>{% trans 'Test Dataset' %}</h4>
+
+
+{{loaded_data | safe}}
+</center>
+
+
+
+
+
+
+{% endblock %}

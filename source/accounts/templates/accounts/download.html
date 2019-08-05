@@ -1,0 +1,26 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block content %}
+
+
+<center><h4>{% trans 'Download File' %}</h4></center>
+
+
+
+
+<center><h1>{{  files.name }}</h1></center>
+<center><div>
+
+
+{% csrf_token %}
+  {% if uploaded_file_url %}
+    <p>Download File: <a href="{{ uploaded_file_url }}" target="_blank">Click Here</a></p>
+  {% endif %}
+
+         </form>
+</div></center>
+
+{%endblock%}

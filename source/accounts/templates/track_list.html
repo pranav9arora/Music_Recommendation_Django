@@ -1,0 +1,94 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block content %}
+
+<h1>My Tracks</h1>
+
+{% if tracks %}
+<center><form action="{% url 'accounts:getRecommendations' %}">
+     <table>
+
+        <tr>
+            <td></td>
+            <td>
+                <center>
+
+                    <button class="btn btn-primary" type="submit">
+                       Get Recommendations Artists
+                    </button>
+
+                </center>
+            </td>
+        </tr>
+
+    </table>
+</form></center>
+<table class="table table-hover table-striped table-dark" id="example">
+    <thead>
+    <tr>
+        <th class="th-sm">Track ID
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+        <th class="th-sm">Track
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+        <th class="th-sm">Artists
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+        <th>Open Track</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for i in tracks %}
+    <tr>
+        <td>
+            {{ i.id }}
+        </td>
+        <td> {{ i.name }}</td>
+        <td>   {% for i1 in i.artist %}
+                    {{ i1.name }},
+              {% endfor %}
+        </td>
+<td><a href="{{ i.url }}" target="_blank">Play Track</a>
+        </td>
+
+
+
+    </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>ID
+        </th>
+
+ <th >PlayList
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+        <th >Owner Name
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+        <th>Open Track</th>
+
+    </tr>
+    </tfoot>
+
+
+</table>
+
+{% else %}
+<p>No Files are available.</p>
+
+{% endif %}
+
+
+{% endblock %}
+
+
+

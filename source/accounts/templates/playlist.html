@@ -1,0 +1,82 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block content %}
+
+<h1>My Playlist</h1>
+
+{% if playlist %}
+<center><a href="{{ url }}" target="_blank">Click Here To Open Playlist in Spootify</a></center>
+<table class="table table-hover table-striped table-dark" id="example">
+    <thead>
+    <tr>
+        <th class="th-sm">ID
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+        <th class="th-sm">PlayList
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+        <th class="th-sm">Owner Name
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+        <th class="th-sm">Open Playlist in Spootify
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>  <th class="th-sm">Tracks
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for i in playlist %}
+    <tr>
+        <td>
+            {{ i.id }}
+        </td>
+        <td> {{ i.name }}</td>
+        <td> {{ i.owner }}</td>
+        <td> <a href='{{ i.url }}' target="_blank" >Open Playlist in Spootify</a></td>
+        <td> <form action="{% url 'accounts:tracklist' %}" method="POST">
+             {% csrf_token %}
+            <input type="hidden" name="playlist_id" value="{{ i.id }}">
+            <input type="submit" value="Open Playlist" class="btn btn-success">
+        </form></td>
+
+
+    </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>ID
+        </th>
+
+ <th >PlayList
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+        <th >Owner Name
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+        <th >Open Playlist in Spootify
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+        <th>Tracks</th>
+    </tr>
+    </tfoot>
+
+
+</table>
+
+{% else %}
+<p>No Files are available.</p>
+
+{% endif %}
+
+
+{% endblock %}
+
+
+

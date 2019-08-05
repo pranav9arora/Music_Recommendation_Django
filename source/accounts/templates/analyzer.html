@@ -1,0 +1,102 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block content %}
+
+<center>
+   <form name="form"
+      action="{% url 'accounts:training_data' %}" method="POST">
+    {% csrf_token %}
+
+    <!--{{ form }}-->
+    <table>
+
+        <tr>
+            <td></td>
+            <td>
+                <center>
+
+                    <button class="btn btn-primary" type="submit">
+                        Get Training Data set
+                    </button>
+
+                </center>
+            </td>
+        </tr>
+
+    </table>
+
+
+
+</form>
+       <form name="form"
+      action="{% url 'accounts:test_data' %}" method="POST">
+    {% csrf_token %}
+
+    <!--{{ form }}-->
+    <table>
+
+        <tr>
+            <td></td>
+            <td>
+                <center>
+
+                    <button class="btn btn-primary" type="submit">
+                        Get Test Data set
+                    </button>
+
+                </center>
+            </td>
+        </tr>
+
+    </table>
+
+
+
+</form>
+<form action="{% url 'accounts:getRecommendations' %}">
+     <table>
+
+        <tr>
+            <td></td>
+            <td>
+                <center>
+
+                    <button class="btn btn-primary" type="submit">
+                       Get Recommendations
+                    </button>
+
+                </center>
+            </td>
+        </tr>
+
+    </table>
+</form>
+    <form action="{% url 'accounts:viewTrainingData' %}">
+     <table>
+
+        <tr>
+            <td></td>
+            <td>
+                <center>
+
+                    <button class="btn btn-primary" type="submit">
+                      View Test Data
+                    </button>
+
+                </center>
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+</center>
+
+
+
+
+
+{% endblock %}

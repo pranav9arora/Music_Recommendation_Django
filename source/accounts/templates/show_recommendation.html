@@ -1,0 +1,81 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load bootstrap4 %}
+{% load i18n %}
+
+
+{% block content %}
+<h1>Show Recommendations</h1>
+
+{% if finallist %}
+<table class="table table-hover table-striped table-dark" id="example">
+    <thead>
+    <tr>
+        <th class="th-sm">ID
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+        <th class="th-sm">Name
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th> <th class="th-sm">View Details
+            <i class="fa fa-sort float-right" aria-hidden="true"></i>
+        </th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for i in finallist %}
+    <tr>
+        <td>
+            {{ i.id }}
+        </td>
+        <td> {{ i.name }}</td>
+        <td>
+           <form action="{% url 'accounts:getPlaylistsArtist' %}" method="GET">
+     <table>
+
+        <tr>
+            <td></td>
+            <td>
+                <center>
+<input type="hidden" name="artist_id" value="{{ i.id }}">
+                    <button class="btn btn-primary" type="submit">
+                       View Details
+                    </button>
+
+                </center>
+            </td>
+        </tr>
+
+    </table>
+</form>
+        </td>
+
+
+    </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>ID
+        </th>
+        <th>Name
+        </th> <th>View Details
+        </th>
+
+    </tr>
+    </tfoot>
+
+
+</table>
+
+{% else %}
+<p>No Files are available.</p>
+
+{% endif %}
+
+
+{% endblock %}
+
+
+

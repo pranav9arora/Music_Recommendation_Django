@@ -1,0 +1,69 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block content %}
+
+<h4>{% trans 'Upload Image' %}</h4>
+
+
+<form name="form" enctype="multipart/form-data"
+      action="{% url 'accounts:saved' %}" method="POST">
+    {% csrf_token %}
+
+    <!--{{ form }}-->
+    <table>
+        <tr>
+            <td>
+                File Name
+            </td>
+            <td>
+                <center>
+                    <input type="text" style="margin-left:20%;"
+                           placeholder="Name" name="name"/>
+                </center>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                File Password
+            </td>
+            <td>
+                <center>
+                    <input type="password" style="margin-left:20%;"
+                           placeholder="Password" name="password" required/>
+                </center>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Select File
+            </td>
+            <td>
+                <center>
+                    <input type="file" class=""
+                           placeholder="Select File" name="documents"/>
+                </center>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <center>
+
+                    <button class="btn btn-primary" type="submit">
+                        Upload Image
+                    </button>
+
+                </center>
+            </td>
+        </tr>
+
+    </table>
+
+
+</form>
+
+
+{% endblock %}

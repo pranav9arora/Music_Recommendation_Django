@@ -1,0 +1,59 @@
+Content-Type: multipart/alternative;
+ boundary="===============6229640892245065322=="
+MIME-Version: 1.0
+Subject: Restore password
+From: test@example.com
+To: colthurling@gmail.com
+Date: Mon, 17 Sep 2018 12:44:25 -0000
+Message-ID: <153718826502.4734.11022625938171526473@riddhi-G7-7588>
+
+--===============6229640892245065322==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+
+
+
+You received this email because you requested a password reset for your user account.
+
+Please, go to the following page and choose a new password:
+
+http://127.0.0.1:8000/accounts/restore/MQ/4zo-77c8a664c283fa7a8eb6/
+
+--===============6229640892245065322==
+Content-Type: text/html; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Restore password</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+
+<p>
+    You received this email because you requested a password reset for your user account.
+</p>
+
+<p>
+    Please, go to the following page and choose a new password:
+</p>
+
+<p>
+    <a href="http://127.0.0.1:8000/accounts/restore/MQ/4zo-77c8a664c283fa7a8eb6/">http://127.0.0.1:8000/accounts/restore/MQ/4zo-77c8a664c283fa7a8eb6/</a>
+</p>
+
+</body>
+
+</html>
+
+--===============6229640892245065322==--
+
+-------------------------------------------------------------------------------
